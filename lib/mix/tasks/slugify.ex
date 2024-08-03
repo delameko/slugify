@@ -4,6 +4,7 @@ defmodule Mix.Tasks.Slugify do
   use Mix.Task
 
   def run(_args) do
+    {:ok, _started} = Application.ensure_all_started(:jason)
     data = read_from_priv!("data.json")
 
     replacements =
