@@ -2,9 +2,9 @@ defmodule Mix.Tasks.Slugify do
   @moduledoc false
   @shortdoc "Generate replacement characters for transliteration"
   use Mix.Task
+  @requirements ["app.start"]
 
   def run(_args) do
-    {:ok, _started} = Application.ensure_all_started(:jason)
     data = read_from_priv!("data.json")
 
     replacements =
